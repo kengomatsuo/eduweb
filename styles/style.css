@@ -94,6 +94,10 @@
   text-shadow: 3px 3px 3px var(--shadow-color);
 }
 
+.spacer {
+  width: 100%;
+}
+
 html,
 body {
   margin: 0;
@@ -272,7 +276,7 @@ footer * {
   color: var(--hyperlink-hover-color);
 }
 
-.main {
+#main {
   background-size: cover;
   overflow-y: clip;
   align-items: center;
@@ -280,45 +284,45 @@ footer * {
   text-align: center;
 }
 
-.main * {
+#main * {
   color: var(--back-color);
 }
 
-.main h1 {
+#main h1 {
   font-size: var(--title-size);
 }
 
-.main a {
+#main a {
   font-size: var(--generic-button-size);
 }
 
-.main-background {
+#main-background {
   width: 100%;
 }
 
-.boast {
+#boast {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-.boast h1 {
+#boast h1 {
   font-size: var(--title-size);
 }
 
-.boast a {
+#boast a {
   font-size: var(--generic-button-size);
 }
 
-.features {
+#features {
   flex-wrap: wrap;
   padding: 0;
   color: var(--back-color);
   justify-content: space-evenly;
 }
 
-.features h1 {
+#features h1 {
   display: var(--feature-title-visibility);
   z-index: 1;
   position: absolute;
@@ -340,6 +344,7 @@ footer * {
   background-position-x: center;
   height: 100vh;
   box-sizing: border-box;
+  min-width: 210px;
 }
 
 .feature:hover {
@@ -376,30 +381,34 @@ footer * {
   opacity: 0;
 }
 
-.feature:hover p {
+.feature:hover p,
+.feature:active p {
   transition-duration: 1s;
   opacity: 100%;
 }
 
-.subscriptions {
+#subscriptions {
   justify-content: center;
   text-align: center;
+  padding-bottom: 72px;
 }
 
-.subscriptions .spacer {
-  width: 100%;
-}
-
-.subscriptions h1 {
-  margin: 64px;
+#subscriptions h1 {
   font-size: var(--title-size);
+  margin: 48px 0;
+}
+
+#subscriptions a {
+  font-size: var(--generic-button-size);
 }
 
 .plans {
   display: flex;
-  padding: 0;
+  flex-wrap: wrap;
+  padding: 0 5%;
   gap: 40px;
-  justify-content: space-evenly;
+  margin-bottom: 48px;
+  justify-content: space-around;
 }
 
 .plan {
@@ -409,7 +418,6 @@ footer * {
   transition-duration: 0.3s;
   z-index: 0;
   background-color: var(--back-color);
-  width: 20vw;
   position: relative;
   flex: 1 1;
   padding: var(--card-padding);
@@ -473,7 +481,13 @@ footer * {
 
 .plan a {
   font-size: var(--generic-button-size);
+  box-sizing: border-box;
+  width: 100%;
   margin-top: auto;
   margin-left: auto;
   margin-right: auto;
+}
+
+#faq {
+  justify-content: center;
 }

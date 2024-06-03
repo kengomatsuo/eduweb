@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles/style.css">
   <script src="/scripts/customElements.js"></script>
+  <script src="/scripts/validations.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -24,26 +25,26 @@
       <h1 class="inter-bold">Start your Journey with Us</h1>
       <form action="" method="POST" class="inter-regular" id="register-form">
         <span>
-          <label for="firstname"></label>
           <input type="text" name="firstname" id="firstname" placeholder="First Name">
+          <label for="firstname"></label>
         </span>
         <span>
-          <label for="lastname"></label>
           <input type="text" name="lastname" id="lastname" placeholder="Last Name">
+          <label for="lastname"></label>
         </span>
         <div>
-          <label for="email"></label>
           <input type="email" name="email" id="email" placeholder="Email">
+          <label for="email"></label>
         </div>
         <div>
-          <label for="password"></label>
           <input type="password" name="password" id="password" placeholder="Password">
+          <label for="password"></label>
         </div>
         <div>
+          <input type="password" name="password" id="confpassword" placeholder="Confirm Password">
           <label for="confpassword"></label>
-          <input type="password" name="password" id="password" placeholder="Confirm Password">
         </div>
-        <input class="black-button-filled" type="submit" value="Register">
+        <input class="inter-bold black-button-filled" type="submit" value="Register" disabled>
       </form>
     </div>
   </section>

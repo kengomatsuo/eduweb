@@ -42,6 +42,7 @@
   --half-transparent-dark-color: rgba(0, 0, 0, 0.5);
   --transparent-color: rgba(0, 0, 0, 0);
   --price-color: rgba(0, 0, 0, 0.6);
+  --warning-color: rgb(200, 50, 50);
 }
 
 .lusitana-regular {
@@ -560,7 +561,17 @@ footer * {
   gap: 20px;
 }
 
+form label {
+  height: 8px;
+  display: block;
+  font-size: 16px;
+  margin-bottom: -4px;
+  padding-left: 8px;
+  color: var(--warning-color);
+}
+
 input {
+  transition-duration: 0.3s;
   width: 100%;
   box-sizing: border-box;
   font-size: var(--generic-button-size);
@@ -569,9 +580,26 @@ input {
   padding: 12px 12px;
 }
 
-input[type=submit] {
-  padding: 12px 12px;
+input:hover, input:focus {
+  transition-duration: 0.3s;
+  box-shadow: 4px 4px 3px var(--shadow-color);
+  outline: none;
+}
+
+input:focus {
+  transition-duration: 0s;
+  outline: 2px solid var(--main-color);
+}
+
+input[type="submit"] {
+  padding: 12px;
   cursor: pointer;
+}
+
+input[type="submit"]:disabled {
+  opacity: 50%;
+  cursor: not-allowed;
+  box-shadow: none;
 }
 
 #register-form span {

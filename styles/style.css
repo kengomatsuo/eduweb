@@ -575,20 +575,25 @@ input {
   width: 100%;
   box-sizing: border-box;
   font-size: var(--generic-button-size);
-  border: 3px solid var(--main-color);
+  border: 3px solid var(--half-transparent-dark-color);
   border-radius: 8px;
   padding: 12px 12px;
 }
 
-input:hover, input:focus {
+input:hover,
+input:focus {
   transition-duration: 0.3s;
-  box-shadow: 4px 4px 3px var(--shadow-color);
+  box-shadow: 2px 2px 4px var(--shadow-color);
   outline: none;
 }
 
+input:active {
+  transition-duration: 0.1s;
+  box-shadow: none;
+}
+
 input:focus {
-  transition-duration: 0s;
-  outline: 2px solid var(--main-color);
+  border-color: var(--main-color);
 }
 
 input[type="submit"] {

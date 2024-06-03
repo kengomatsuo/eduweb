@@ -489,5 +489,45 @@ footer * {
 }
 
 #faq {
-  justify-content: center;
+  text-align: center;
+  padding-bottom: 72px;
+}
+
+#faq h1 {
+  font-size: var(--title-size);
+  margin: 48px 0 72px 0;
+}
+
+#faq hr {
+  border-top: 3px solid lightgrey;
+  margin: 39px 0 24px 0;
+}
+
+#faq a {
+  font-size: var(--generic-button-size);
+}
+
+.qna {
+  text-align: left;
+  margin-bottom: 48px;
+}
+
+.question {
+  font-size: var(--second-title-size);
+}
+
+.answer {
+  font-size: var(--navigation-size);
+  margin-left: 32px;
+  margin-top: 8px;
+}
+
+details summary {
+  cursor: pointer;
+  margin-bottom: -15px;
+  transition: margin-bottom 0.15s;
+}
+
+details[open] summary {
+  margin-bottom: 10px;
 }

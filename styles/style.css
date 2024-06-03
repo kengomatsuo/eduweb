@@ -2,27 +2,35 @@
   :root {
     --logo-size: 48px;
     --logo-name-size: 30px;
+    --navigation-size: 22px;
     --title-size: 48px;
     --second-title-size: 32px;
     --signup-text-size: 22px;
+    --price-size: 22px;
+    --description-size: 18px;
     --generic-button-size: 28px;
     --features-percentage: 20%;
     --feature-title-visibility: initial;
     --feature-flex-value: 1.3 1;
+    --card-padding: 16px 24px 32px 24px;
   }
 }
 
 @media screen and (max-width: 768px) {
   :root {
-    --logo-size: 48px;
+    --logo-size: 40px;
     --logo-name-size: 30px;
-    --title-size: 48px;
+    --navigation-size: 18px;
+    --title-size: 40px;
     --second-title-size: 32px;
-    --signup-text-size: 22px;
-    --generic-button-size: 28px;
+    --signup-text-size: 18px;
+    --price-size: 22px;
+    --description-size: 14px;
+    --generic-button-size: 24px;
     --features-percentage: 20%;
-    --feature-title-visibility: initial;
-    --feature-flex-value: 1.5 1;
+    --feature-title-visibility: none;
+    --feature-flex-value: 1.3 1;
+    --card-padding: 16px 12px 32px 12px;
   }
 }
 
@@ -33,6 +41,7 @@
   --shadow-color: rgba(0, 0, 0, 0.25);
   --half-transparent-dark-color: rgba(0, 0, 0, 0.5);
   --transparent-color: rgba(0, 0, 0, 0);
+  --price-color: rgba(0, 0, 0, 0.6);
 }
 
 .lusitana-regular {
@@ -68,7 +77,7 @@
 }
 
 .shaded-card {
-  transition-duration: 1s;
+  transition-duration: 0.3s;
   box-shadow: 2px 4px 8px 0 var(--shadow-color);
 }
 
@@ -160,7 +169,7 @@ footer * {
 
 .navigation-button {
   position: relative;
-  font-size: 22px;
+  font-size: var(--navigation-size);
   margin-left: 16px;
   margin-right: 16px;
 }
@@ -227,7 +236,8 @@ footer * {
   box-shadow: 4px 4px 3px var(--shadow-color);
 }
 
-.black-button:active {
+.black-button:active,
+.black-button-filled:active {
   box-shadow: none;
 }
 
@@ -362,7 +372,7 @@ footer * {
 
 .feature p {
   transition-duration: 0.3s;
-  justify-self: stretch;
+  font-size: var(--description-size);
   opacity: 0;
 }
 
@@ -372,7 +382,6 @@ footer * {
 }
 
 .subscriptions {
-
   justify-content: center;
   text-align: center;
 }
@@ -388,32 +397,33 @@ footer * {
 
 .plans {
   display: flex;
-  padding: 0 20px;
+  padding: 0;
   gap: 40px;
   justify-content: space-evenly;
 }
 
 .plan {
-  transition-duration: 1s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition-duration: 0.3s;
   z-index: 0;
   background-color: var(--back-color);
   width: 20vw;
   position: relative;
-  text-align: center;
   flex: 1 1;
-  padding: 16px 24px 32px 24px;
+  padding: var(--card-padding);
   border-radius: 12px;
   box-sizing: border-box;
 }
 
 .plan:not(.suggested-card) {
-  transition-duration: 0.1s;
+  transition-duration: 0.3s;
   transition-timing-function: linear;
-  border: 0 solid var(--main-color);
 }
 
-.plan .plan:not(:hover){
-  transition-duration: 1s;
+.plans .plan:not(:hover) {
+  transition-duration: 0.3s;
 }
 
 .plans:hover .plan:not(:hover) {
@@ -424,7 +434,6 @@ footer * {
 
 .plan:hover {
   transition-duration: 0.3s;
-  border: 5px solid var(--main-color);
   opacity: 100%;
   z-index: 1;
   transform: scale(105%);
@@ -432,4 +441,39 @@ footer * {
 
 .plan h2 {
   font-size: var(--second-title-size);
+  margin: 0;
+}
+
+.plan h3 {
+  font-size: var(--price-size);
+  color: var(--price-color);
+  margin-top: 6px;
+}
+
+.plan p {
+  font-size: var(--description-size);
+  margin: 0 32px 10% 10%;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.plan ul {
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 32px;
+  padding: 0;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.plan li {
+  margin: 8px 0;
+  font-size: var(--description-size);
+}
+
+.plan a {
+  font-size: var(--generic-button-size);
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
 }

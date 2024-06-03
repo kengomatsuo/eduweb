@@ -305,7 +305,7 @@ footer * {
   flex-wrap: wrap;
   padding: 0;
   color: var(--back-color);
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .features h1 {
@@ -372,8 +372,13 @@ footer * {
 }
 
 .subscriptions {
+
   justify-content: center;
   text-align: center;
+}
+
+.subscriptions .spacer {
+  width: 100%;
 }
 
 .subscriptions h1 {
@@ -383,10 +388,9 @@ footer * {
 
 .plans {
   display: flex;
-  width: 100%;
   padding: 0 20px;
-  gap: 20px;
-  justify-content: space-between;
+  gap: 40px;
+  justify-content: space-evenly;
 }
 
 .plan {
@@ -399,18 +403,31 @@ footer * {
   flex: 1 1;
   padding: 16px 24px 32px 24px;
   border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.plan:not(.suggested-card) {
+  transition-duration: 0.1s;
+  transition-timing-function: linear;
+  border: 0 solid var(--main-color);
+}
+
+.plan .plan:not(:hover){
+  transition-duration: 1s;
 }
 
 .plans:hover .plan:not(:hover) {
   transition-duration: 0.3s;
   opacity: 50%;
+  transform: scale(95%);
 }
 
 .plan:hover {
   transition-duration: 0.3s;
+  border: 5px solid var(--main-color);
   opacity: 100%;
   z-index: 1;
-  transform: scale(110%);
+  transform: scale(105%);
 }
 
 .plan h2 {

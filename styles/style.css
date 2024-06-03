@@ -78,7 +78,11 @@
 
 .shaded-card {
   transition-duration: 0.3s;
+  background-color: var(--back-color);
   box-shadow: 2px 4px 8px 0 var(--shadow-color);
+  padding: var(--card-padding);
+  border-radius: 12px;
+  box-sizing: border-box;
 }
 
 .shaded-card:hover {
@@ -96,6 +100,10 @@
 
 .spacer {
   width: 100%;
+}
+
+.hidden {
+  display: none;
 }
 
 html,
@@ -136,9 +144,27 @@ section {
   overflow-x: clip;
 }
 
+h1 {
+  font-size: var(--title-size);
+}
+
+h2 {
+  font-size: var(--second-title-size);
+}
+
 a {
   text-decoration: none;
   color: var(--main-color);
+}
+
+details summary {
+  cursor: pointer;
+  margin-bottom: -15px;
+  transition: margin-bottom 0.15s;
+}
+
+details[open] summary {
+  margin-bottom: 10px;
 }
 
 footer {
@@ -196,12 +222,12 @@ footer * {
   left: -5%;
 }
 
-.current {
+#current {
   cursor: default;
   pointer-events: none;
 }
 
-.current::after {
+#current::after {
   content: "";
   height: 3px;
   width: 110%;
@@ -276,7 +302,10 @@ footer * {
   color: var(--hyperlink-hover-color);
 }
 
+/* Home Page */
+
 #main {
+  background-image: url(/assets/img/home-main.jpg);
   background-size: cover;
   overflow-y: clip;
   align-items: center;
@@ -286,10 +315,6 @@ footer * {
 
 #main * {
   color: var(--back-color);
-}
-
-#main h1 {
-  font-size: var(--title-size);
 }
 
 #main a {
@@ -307,10 +332,6 @@ footer * {
   text-align: center;
 }
 
-#boast h1 {
-  font-size: var(--title-size);
-}
-
 #boast a {
   font-size: var(--generic-button-size);
 }
@@ -326,7 +347,6 @@ footer * {
   display: var(--feature-title-visibility);
   z-index: 1;
   position: absolute;
-  font-size: var(--title-size);
   left: 50%;
   transform: translate(-50%);
   margin-top: 64px;
@@ -354,6 +374,7 @@ footer * {
 
 .feature::before {
   transition-duration: 0.5s;
+  background-color: var(--shadow-color);
   content: "";
   position: absolute;
   width: 100%;
@@ -369,10 +390,6 @@ footer * {
 .feature div {
   padding: 180px 30px;
   z-index: 1;
-}
-
-.feature h2 {
-  font-size: var(--second-title-size);
 }
 
 .feature p {
@@ -394,7 +411,6 @@ footer * {
 }
 
 #subscriptions h1 {
-  font-size: var(--title-size);
   margin: 48px 0;
 }
 
@@ -417,12 +433,8 @@ footer * {
   justify-content: center;
   transition-duration: 0.3s;
   z-index: 0;
-  background-color: var(--back-color);
   position: relative;
   flex: 1 1;
-  padding: var(--card-padding);
-  border-radius: 12px;
-  box-sizing: border-box;
 }
 
 .plan:not(.suggested-card) {
@@ -448,7 +460,6 @@ footer * {
 }
 
 .plan h2 {
-  font-size: var(--second-title-size);
   margin: 0;
 }
 
@@ -494,7 +505,6 @@ footer * {
 }
 
 #faq h1 {
-  font-size: var(--title-size);
   margin: 48px 0 72px 0;
 }
 
@@ -522,12 +532,52 @@ footer * {
   margin-top: 8px;
 }
 
-details summary {
-  cursor: pointer;
-  margin-bottom: -15px;
-  transition: margin-bottom 0.15s;
+/* Register Page */
+
+#register {
+  background-image: url(/assets/img/register-main.jpg);
+  background-size: cover;
+  background-position: center;
+  overflow-y: clip;
+  align-items: center;
+  justify-content: right;
 }
 
-details[open] summary {
-  margin-bottom: 10px;
+#register .shaded-card {
+  max-width: 550px;
+  margin-top: 72px;
+  padding: 36px 32px 40px 32px;
+}
+
+#register .shaded-card h1 {
+  text-align: center;
+  margin: 0 0 36px 0;
+}
+
+#register-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: var(--generic-button-size);
+  border: 3px solid var(--main-color);
+  border-radius: 8px;
+  padding: 12px 12px;
+}
+
+input[type=submit] {
+  padding: 12px 12px;
+  cursor: pointer;
+}
+
+#register-form span {
+  flex: 1 1;
+}
+
+#register-form div {
+  width: 100%;
 }

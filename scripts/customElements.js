@@ -1,3 +1,4 @@
+console.log(window.location.pathname)
 const currentPath = window.location.pathname
 const checkHome = (currentPath === '/index.html') ? 'id="current"' : 'href="/index.html"'
 const checkSubs = (currentPath === '/subscription/index.html') ? 'id="current"' : 'href="/subscription/index.html"'

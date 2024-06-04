@@ -3,7 +3,7 @@ const checkHome = (currentPath === '/index.html') ? 'id="current"' : 'href="/ind
 const checkSubs = (currentPath === '/subscription/index.html') ? 'id="current"' : 'href="/subscription/index.html"'
 const checkRevi = (currentPath === '/testimony/index.html') ? 'id="current"' : 'href="/testimony/index.html"'
 const checkLear = (currentPath === '/learning/index.html') ? 'id="current"' : 'href="/learning/index.html"'
-const checkSign = (currentPath === '/register/index.html') ? 'hidden' : 'href="/register/index.html"'
+const checkSign = (currentPath === '/register/index.html') ? ' hidden"' : '" href="/register/index.html"'
 
 class customHeader extends HTMLElement {
   connectedCallback() {
@@ -15,7 +15,7 @@ class customHeader extends HTMLElement {
           <a class="inter-regular navigation-button" ${checkSubs}>Products</a>
           <a class="inter-regular navigation-button" ${checkRevi}>Reviews</a>
           <a class="inter-regular navigation-button" ${checkLear}>Learn</a>
-          <a class="inter-regular black-button signup ${checkSign}">Sign up</a>
+          <a class="inter-regular black-button signup${checkSign}>Sign up</a>
         </nav>
       </header>
     `

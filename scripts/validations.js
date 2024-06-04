@@ -5,11 +5,43 @@ let checkPhone = false
 let checkPassword = false
 let checkConfPassword = false
 
-const registerButton = document.getElementById('submitbutton')
-
-
 const firstName = document.getElementById('firstname')
 const firstNameLabel = document.getElementById('firstnamelb')
+const lastName = document.getElementById('lastname')
+const lastNameLabel = document.getElementById('lastnamelb')
+const email = document.getElementById('email')
+const emailLabel = document.getElementById('emaillb')
+const phone = document.getElementById('phone')
+const phoneLabel = document.getElementById('phonelb')
+const password = document.getElementById('password')
+const passwordLabel = document.getElementById('passwordlb')
+const confPassword = document.getElementById('confpassword')
+const confPasswordLabel = document.getElementById('confpasswordlb')
+const submitButton = document.getElementById('submitbutton')
+
+window.onload = checkAll()
+
+function checkAll() {
+  if (firstName.value.length) firstNameValidation()
+  if (lastName.value.length) lastNameValidation()
+  if (email.value.length) emailValidation()
+  if (phone.value.length) phoneValidation()
+  if (password.value.length) passwordValidation()
+  if (confPassword.value.length) confPasswordValidation()
+  if (submitButton.disabled) {
+    return false
+  } else {
+    return true
+  }
+}
+
+function validateButton() {
+  if (checkFirstName && checkLastName && checkEmail && checkPhone && checkPassword && checkConfPassword) {
+    submitButton.disabled = false
+  } else {
+    submitButton.disabled = true
+  }
+}
 
 function firstNameValidation() {
   if (!firstName.value.length) {
@@ -24,9 +56,6 @@ function firstNameValidation() {
   validateButton()
 }
 
-const lastName = document.getElementById('lastname')
-const lastNameLabel = document.getElementById('lastnamelb')
-
 function lastNameValidation() {
   if (!lastName.value.length) {
     lastName.classList.add('wrong-input')
@@ -39,9 +68,6 @@ function lastNameValidation() {
   }
   validateButton()
 }
-
-const email = document.getElementById('email')
-const emailLabel = document.getElementById('emaillb')
 
 function emailValidation() {
   let errorMsg = ''
@@ -89,20 +115,17 @@ function emailValidation() {
   validateButton()
 }
 
-const phone = document.getElementById('phone')
-const phoneLabel = document.getElementById('phonelb')
-
 function phoneValidation() {
   let errorMsg = ''
   if (!phone.value.length) {
-    errorMsg= 'Phone number must be filled'
+    errorMsg = 'Phone number must be filled'
   } else if (isNaN(phone.value)) {
     errorMsg = 'Phone number must be number'
   } else if (phone.value.length < 7 || phone.value.length > 15) {
     errorMsg = 'Phone number must be between 7 and 15 numbers long'
-  } 
-  
-  if(errorMsg.length) {
+  }
+
+  if (errorMsg.length) {
     phone.classList.add('wrong-input')
     checkPhone = false
   } else {
@@ -113,16 +136,13 @@ function phoneValidation() {
   validateButton()
 }
 
-const password = document.getElementById('password')
-const passwordLabel = document.getElementById('passwordlb')
-
 function passwordValidation() {
   let errorMsg = ''
 
   if (!password.value.length) {
     errorMsg = 'Password must be filled'
   }
-  else if (password.value.length < 8){
+  else if (password.value.length < 8) {
     errorMsg = 'Password must not be at least 8 characters long'
   }
   else {
@@ -161,14 +181,15 @@ function passwordValidation() {
     checkPassword = true
   }
   passwordLabel.innerHTML = errorMsg
+  if(confPassword.value.length) confPasswordValidation()
   validateButton()
 }
 
-const confPassword = document.getElementById('confpassword')
-const confPasswordLabel = document.getElementById('confpasswordlb')
-
 function confPasswordValidation() {
-  if (confPassword.value !== password.value) {
+  if (!confPassword.value.length && !password.value.length) {
+    confPassword.classList.add('wrong-input')
+    confPasswordLabel.innerHTML = 'Fill in password first'
+  } else if (confPassword.value !== password.value) {
     confPassword.classList.add('wrong-input')
     confPasswordLabel.innerHTML = 'Confirmation password must match password'
     checkConfPassword = false
@@ -180,9 +201,16 @@ function confPasswordValidation() {
   validateButton()
 }
 
-firstName.addEventListener('blur', firstNameValidation)
-lastName.addEventListener('blur', lastNameValidation)
-email.addEventListener('blur', emailValidation)
-phone.addEventListener('blur', phoneValidation)
-password.addEventListener('blur', passwordValidation)
-confPassword.addEventListener('blur', confPasswordValidation)
+firstName.addEventListener('input', firstNameValidation)
+lastName.addEventListener('input', lastNameValidation)
+email.addEventListener('input', emailValidation)
+phone.addEventListener('input', phoneValidation)
+password.addEventListener('input', passwordValidation)
+confPassword.addEventListener('input', confPasswordValidation)
+
+document.getElementById('register-form').addEventListener('submit', (e) => {
+  e.preventDefault()
+  if (checkAll()) {
+    location.replace = '/index.html'
+  }
+})

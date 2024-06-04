@@ -1,10 +1,9 @@
-console.log(window.location.pathname)
 const currentPath = window.location.pathname
-const checkHome = (currentPath === '/index.html') ? 'id="current"' : ''
-const checkSubs = (currentPath === '/subscription/index.html') ? 'id="current"' : ''
-const checkRevi = (currentPath === '/testimony/index.html') ?'id="current"' : ''
-const checkLear = (currentPath === '/learning/index.html') ? 'id="current"' : ''
-const checkSign = (currentPath === '/register/index.html') ? 'hidden' : ''
+const checkHome = (currentPath === '/index.html') ? 'id="current"' : 'href="/index.html"'
+const checkSubs = (currentPath === '/subscription/index.html') ? 'id="current"' : 'href="/subscription/index.html"'
+const checkRevi = (currentPath === '/testimony/index.html') ? 'id="current"' : 'href="/testimony/index.html"'
+const checkLear = (currentPath === '/learning/index.html') ? 'id="current"' : 'href="/learning/index.html"'
+const checkSign = (currentPath === '/register/index.html') ? 'hidden' : 'href="/register/index.html"'
 
 class customHeader extends HTMLElement {
   connectedCallback() {
@@ -12,11 +11,11 @@ class customHeader extends HTMLElement {
       <header class="shaded-vertical">
         <a class="lusitana-regular logo">JA</a>
         <nav>
-          <a class="inter-regular navigation-button" ${checkHome} href="/index.html">Home</a>
-          <a class="inter-regular navigation-button" ${checkSubs} href="/subscription/index.html">Products</a>
-          <a class="inter-regular navigation-button" ${checkRevi} href="/testimony/index.html">Reviews</a>
-          <a class="inter-regular navigation-button" ${checkLear} href="/learning/index.html">Learn</a>
-          <a class="inter-regular black-button signup ${checkSign}" href="/register/index.html">Sign up</a>
+          <a class="inter-regular navigation-button" ${checkHome}>Home</a>
+          <a class="inter-regular navigation-button" ${checkSubs}>Products</a>
+          <a class="inter-regular navigation-button" ${checkRevi}>Reviews</a>
+          <a class="inter-regular navigation-button" ${checkLear}>Learn</a>
+          <a class="inter-regular black-button signup ${checkSign}">Sign up</a>
         </nav>
       </header>
     `

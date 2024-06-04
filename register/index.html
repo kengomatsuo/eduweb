@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles/style.css">
-  <script src="/scripts/customElements.js"></script>
-  <script src="/scripts/validations.js"></script>
+  <script src="/scripts/customElements.js" defer></script>
+  <script src="/scripts/validations.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -26,23 +26,23 @@
       <form action="" method="POST" class="inter-regular" id="register-form">
         <span>
           <input type="text" name="firstname" id="firstname" placeholder="First Name">
-          <label for="firstname"></label>
+          <label for="firstname" id="firstnamelb"></label>
         </span>
         <span>
           <input type="text" name="lastname" id="lastname" placeholder="Last Name">
-          <label for="lastname"></label>
+          <label for="lastname" id="lastnamelb"></label>
         </span>
         <div>
           <input type="email" name="email" id="email" placeholder="Email">
-          <label for="email"></label>
+          <label for="email" id="emaillb"></label>
         </div>
         <div>
           <input type="password" name="password" id="password" placeholder="Password">
-          <label for="password"></label>
+          <label for="password" id="passwordlb"></label>
         </div>
         <div>
           <input type="password" name="password" id="confpassword" placeholder="Confirm Password">
-          <label for="confpassword"></label>
+          <label for="confpassword" id="confpasswordlb"></label>
         </div>
         <input class="inter-bold black-button-filled" type="submit" value="Register" disabled>
       </form>

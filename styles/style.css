@@ -568,6 +568,7 @@ form label {
   margin-bottom: -4px;
   padding-left: 8px;
   color: var(--warning-color);
+  text-overflow: ellipsis;
 }
 
 input {
@@ -613,4 +614,8 @@ input[type="submit"]:disabled {
 
 #register-form div {
   width: 100%;
+}
+
+.wrong-input {
+  border-color: var(--warning-color);
 }

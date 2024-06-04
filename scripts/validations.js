@@ -1,3 +1,13 @@
+let checkFirstName = false
+let checkLastName = false
+let checkEmail = false
+let checkPhone = false
+let checkPassword = false
+let checkConfPassword = false
+
+const registerButton = document.getElementById('submitbutton')
+
+
 const firstName = document.getElementById('firstname')
 const firstNameLabel = document.getElementById('firstnamelb')
 
@@ -5,10 +15,13 @@ function firstNameValidation() {
   if (!firstName.value.length) {
     firstName.classList.add('wrong-input')
     firstNameLabel.innerHTML = 'First name must be filled'
+    checkFirstName = false
   } else {
     firstName.classList.remove('wrong-input')
     firstNameLabel.innerHTML = ''
+    checkFirstName = true
   }
+  validateButton()
 }
 
 const lastName = document.getElementById('lastname')
@@ -18,10 +31,13 @@ function lastNameValidation() {
   if (!lastName.value.length) {
     lastName.classList.add('wrong-input')
     lastNameLabel.innerHTML = 'Last name must be filled'
+    checkLastName = false
   } else {
     lastName.classList.remove('wrong-input')
     lastNameLabel.innerHTML = ''
+    checkLastName = true
   }
+  validateButton()
 }
 
 const email = document.getElementById('email')
@@ -64,11 +80,37 @@ function emailValidation() {
   }
   if (errorMsg.length) {
     email.classList.add('wrong-input')
-    emailLabel.innerHTML = errorMsg
+    checkEmail = false
   } else {
     email.classList.remove('wrong-input')
-    emailLabel.innerHTML = ''
+    checkEmail = true
   }
+  emailLabel.innerHTML = errorMsg
+  validateButton()
+}
+
+const phone = document.getElementById('phone')
+const phoneLabel = document.getElementById('phonelb')
+
+function phoneValidation() {
+  let errorMsg = ''
+  if (!phone.value.length) {
+    errorMsg= 'Phone number must be filled'
+  } else if (isNaN(phone.value)) {
+    errorMsg = 'Phone number must be number'
+  } else if (phone.value.length < 7 || phone.value.length > 15) {
+    errorMsg = 'Phone number must be between 7 and 15 numbers long'
+  } 
+  
+  if(errorMsg.length) {
+    phone.classList.add('wrong-input')
+    checkPhone = false
+  } else {
+    phone.classList.remove('wrong-input')
+    checkPhone = true
+  }
+  phoneLabel.innerHTML = errorMsg
+  validateButton()
 }
 
 const password = document.getElementById('password')
@@ -113,28 +155,34 @@ function passwordValidation() {
   }
   if (errorMsg.length) {
     password.classList.add('wrong-input')
-    passwordLabel.innerHTML = errorMsg
+    checkPassword = false
   } else {
     password.classList.remove('wrong-input')
-    passwordLabel.innerHTML = ''
+    checkPassword = true
   }
+  passwordLabel.innerHTML = errorMsg
+  validateButton()
 }
 
-confPassword = document.getElementById('confpassword')
-confPasswordLabel = document.getElementById('confpasswordlb')
+const confPassword = document.getElementById('confpassword')
+const confPasswordLabel = document.getElementById('confpasswordlb')
 
 function confPasswordValidation() {
   if (confPassword.value !== password.value) {
     confPassword.classList.add('wrong-input')
     confPasswordLabel.innerHTML = 'Confirmation password must match password'
+    checkConfPassword = false
   } else {
     confPassword.classList.remove('wrong-input')
     confPasswordLabel.innerHTML = ''
+    checkConfPassword = true
   }
+  validateButton()
 }
 
 firstName.addEventListener('blur', firstNameValidation)
 lastName.addEventListener('blur', lastNameValidation)
 email.addEventListener('blur', emailValidation)
+phone.addEventListener('blur', phoneValidation)
 password.addEventListener('blur', passwordValidation)
 confPassword.addEventListener('blur', confPasswordValidation)

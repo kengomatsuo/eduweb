@@ -243,6 +243,7 @@ footer * {
 
 .black-button {
   transition-duration: 0.3s;
+  color: var(--main-color);
   margin-left: auto;
   padding: 6px 12px;
   border: 3px solid var(--main-color);
@@ -274,6 +275,7 @@ footer * {
 
 .white-button {
   transition-duration: 0.3s;
+  color: var(--back-color);
   margin-left: auto;
   padding: 6px 12px;
   border: 3px solid var(--back-color);
@@ -314,7 +316,7 @@ footer * {
   text-align: center;
 }
 
-#main * {
+#main h1 {
   color: var(--back-color);
 }
 

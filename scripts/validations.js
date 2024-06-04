@@ -5,6 +5,7 @@ let checkPhone = false
 let checkPassword = false
 let checkConfPassword = false
 
+const registerForm = document.getElementById('register-form')
 const firstName = document.getElementById('firstname')
 const firstNameLabel = document.getElementById('firstnamelb')
 const lastName = document.getElementById('lastname')
@@ -28,6 +29,7 @@ function checkAll() {
   if (phone.value.length) phoneValidation()
   if (password.value.length) passwordValidation()
   if (confPassword.value.length) confPasswordValidation()
+  console.log(checkFirstName, checkLastName, checkPhone, checkEmail, checkPassword, checkConfPassword)
   if (submitButton.disabled) {
     return false
   } else {
@@ -201,16 +203,18 @@ function confPasswordValidation() {
   validateButton()
 }
 
-firstName.addEventListener('input', firstNameValidation)
-lastName.addEventListener('input', lastNameValidation)
-email.addEventListener('input', emailValidation)
-phone.addEventListener('input', phoneValidation)
-password.addEventListener('input', passwordValidation)
-confPassword.addEventListener('input', confPasswordValidation)
+firstName.addEventListener('input', checkAll)
+lastName.addEventListener('input', checkAll)
+email.addEventListener('input', checkAll)
+phone.addEventListener('input', checkAll)
+password.addEventListener('input', checkAll)
+confPassword.addEventListener('input', checkAll)
 
-document.getElementById('register-form').addEventListener('submit', (e) => {
+registerForm.addEventListener('submit', (e) => {
   e.preventDefault()
   if (checkAll()) {
-    location.replace = '/index.html'
+    localStorage.setItem('auth', true)
+    localStorage.setItem('name', firstName.value + ' ' + lastName.value)
+    location.href = '/index.html'
   }
 })

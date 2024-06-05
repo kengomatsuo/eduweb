@@ -210,6 +210,13 @@ phone.addEventListener('input', checkAll)
 password.addEventListener('input', checkAll)
 confPassword.addEventListener('input', checkAll)
 
+firstName.addEventListener('blur', firstNameValidation)
+lastName.addEventListener('blur', lastNameValidation)
+email.addEventListener('blur', emailValidation)
+phone.addEventListener('blur', phoneValidation)
+password.addEventListener('blur', passwordValidation)
+confPassword.addEventListener('blur', confPasswordValidation)
+
 registerForm.addEventListener('submit', (e) => {
   e.preventDefault()
   if (checkAll()) {

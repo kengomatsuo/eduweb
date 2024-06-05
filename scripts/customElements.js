@@ -16,7 +16,8 @@ class customHeader extends HTMLElement {
           <a class="inter-regular navigation-button" ${checkSubs}>Products</a>
           <a class="inter-regular navigation-button" ${checkRevi}>Reviews</a>
           <a class="inter-regular navigation-button" ${checkLear}>Learn</a>
-          <a class="inter-regular black-button signup${checkSign}>Sign up</a>
+          <h3 class="inter-regular" id="username"></h3>
+          <a class="inter-regular black-button${checkSign} id="signup">Sign up</a>
         </nav>
       </header>
     `

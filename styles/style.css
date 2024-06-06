@@ -348,12 +348,12 @@ footer * {
 #toggle-vertical {
   position: relative;
   margin: 0 auto;
-  font-size: var(--signup-text-size);
+  font-size: var(--price-size);
 }
 
 .navigation-button-vertical {
   position: relative;
-  font-size: var(--navigation-size);
+  font-size: var(--price-size);
 }
 
 .black-button {

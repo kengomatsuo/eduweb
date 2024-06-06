@@ -30,7 +30,6 @@ class customHeader extends HTMLElement {
             <a class="inter-regular navigation-button-vertical" ${checkSubs}>Products</a>
             <a class="inter-regular navigation-button-vertical" ${checkRevi}>Reviews</a>
             <a class="inter-regular navigation-button-vertical" ${checkLear}>Learn</a>
-            <h3 class="inter-regular" id="username"></h3>
             <a class="inter-regular hidden toggle${checkSign} id="toggle-vertical"></a>
           </div>
       </header>

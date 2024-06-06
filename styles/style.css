@@ -11,7 +11,8 @@
     cursor: pointer;
   }
 
-  #toggle-vertical, #burger-icon {
+  #toggle-vertical,
+  #burger-icon {
     display: none;
   }
 }
@@ -31,7 +32,8 @@
     display: flex;
   }
 
-  .navigation-button, #toggle-horizontal {
+  .navigation-button,
+  #toggle-horizontal {
     display: none;
   }
 }
@@ -63,8 +65,8 @@
 
 html {
   scroll-behavior: smooth;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 html::-webkit-scrollbar {
@@ -236,7 +238,9 @@ footer * {
   margin-right: 16px;
 }
 
-.navigation-button::after, .navigation-button-vertical::after, #toggle-vertical:after {
+.navigation-button::after,
+.navigation-button-vertical::after,
+#toggle-vertical:after {
   transition-duration: 0.3s;
   content: "";
   height: 3px;
@@ -248,7 +252,9 @@ footer * {
   pointer-events: none;
 }
 
-.navigation-button:hover::after, .navigation-button-vertical:hover::after, #toggle-vertical:hover::after {
+.navigation-button:hover::after,
+.navigation-button-vertical:hover::after,
+#toggle-vertical:hover::after {
   transition-duration: 0.3s;
   width: 110%;
   left: -5%;
@@ -283,7 +289,9 @@ footer * {
   box-shadow: 3px 3px 3px var(--shadow-color);
 }
 
-.bar1, .bar2, .bar3 {
+.bar1,
+.bar2,
+.bar3 {
   width: 35px;
   height: 5px;
   background-color: var(--main-color);
@@ -295,7 +303,9 @@ footer * {
   transform: translate(0, 11px) rotate(-45deg);
 }
 
-.change .bar2 {opacity: 0;}
+.change .bar2 {
+  opacity: 0;
+}
 
 .change .bar3 {
   transform: translate(0, -11px) rotate(45deg);
@@ -314,6 +324,8 @@ footer * {
   right: 0;
   border-bottom-left-radius: 8px;
   min-width: 128px;
+  box-shadow: inset 0 2px 4px -2px var(--shadow-color),
+    2px 4px 8px 0 var(--shadow-color);
 }
 
 #vertical-navigation * {
@@ -322,12 +334,14 @@ footer * {
 
 .toggleNavOff {
   transition-duration: 0.5s;
-  transform: translateY(-110%);
-  clip-path: inset(110% -10px 0 -10px);
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform: translateX(100%);
+  clip-path: inset(0px -10px -10px 0px);
 }
 
 .toggleNav {
   transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
   clip-path: inset(0px -10px -10px -10px);
 }
 

@@ -1,10 +1,13 @@
 console.log(window.location.pathname)
-const currentPath = window.location.pathname
-const checkHome = (currentPath === '/index.html') ? 'id="current"' : 'href="/index.html"'
-const checkSubs = (currentPath === '/subscription/index.html') ? 'id="current"' : 'href="/subscription/index.html"'
-const checkRevi = (currentPath === '/testimony/index.html') ? 'id="current"' : 'href="/testimony/index.html"'
-const checkLear = (currentPath === '/learning/index.html') ? 'id="current"' : 'href="/learning/index.html"'
-const checkSign = (currentPath === '/register/index.html') ? ' hidden"' : '" href="/register/index.html"'
+let currentPath = window.location.pathname
+currentPath = currentPath.slice(0, currentPath.lastIndexOf('/'))
+currentPath = currentPath.slice(currentPath.lastIndexOf('/') + 1)
+console.log(currentPath);
+const checkHome = (currentPath === 'eduweb') ? 'id="current"' : 'href="../index.html"'
+const checkSubs = (currentPath === 'subscription') ? 'id="current"' : (currentPath === 'eduweb') ? 'href="./subscription/index.html"' : 'href="../subscription/index.html"'
+const checkRevi = (currentPath === 'testimony') ? 'id="current"' : (currentPath === 'eduweb') ? 'href="./testimony/index.html"' : 'href="../testimony/index.html"'
+const checkLear = (currentPath === 'learning') ? 'id="current"' : (currentPath === 'eduweb') ? 'href="./learning/index.html"' : 'href="../learning/index.html"'
+const checkSign = (currentPath === 'register') ? ' hidden"' : (currentPath === 'eduweb') ? '" href="./register/index.html"' : '" href="../register/index.html"'
 
 class customHeader extends HTMLElement {
   connectedCallback() {

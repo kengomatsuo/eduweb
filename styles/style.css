@@ -323,7 +323,7 @@ footer * {
 /* Home Page */
 
 #main {
-  background-image: url(/assets/img/home-main.jpg);
+  background-image: url(../assets/img/home-main.jpg);
   background-size: cover;
   overflow-y: clip;
   align-items: center;
@@ -564,7 +564,7 @@ footer * {
 /* Register Page */
 
 #register {
-  background-image: url(/assets/img/register-main.jpg);
+  background-image: url(../assets/img/register-main.jpg);
   background-size: cover;
   background-position: center;
   overflow-y: clip;
@@ -651,7 +651,7 @@ input[type="submit"]:disabled {
 /* Subscription Page */
 
 #products {
-  background-image: url("/assets/img/subscription-main.jpg");
+  background-image: url("../assets/img/subscription-main.jpg");
   background-size: cover;
   background-position: center;
   overflow-y: clip;
@@ -689,7 +689,7 @@ input[type="submit"]:disabled {
 #testimonies {
   display: block;
   position: relative;
-  background-image: url("/assets/img/testimony-main.jpg");
+  background-image: url("../assets/img/testimony-main.jpg");
   background-position: center;
   background-size: cover;
   padding: 72px;
@@ -771,7 +771,7 @@ input[type="submit"]:disabled {
 #learn-main {
   padding: 72px;
   position: relative;
-  background-image: url("/assets/img/learn-cs50-main.jpg");
+  background-image: url("../assets/img/learn-cs50-main.jpg");
 }
 
 main-player {

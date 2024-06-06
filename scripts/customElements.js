@@ -17,7 +17,7 @@ class customHeader extends HTMLElement {
           <a class="inter-regular navigation-button" ${checkRevi}>Reviews</a>
           <a class="inter-regular navigation-button" ${checkLear}>Learn</a>
           <h3 class="inter-regular" id="username"></h3>
-          <a class="inter-regular black-button${checkSign} id="signup">Sign up</a>
+          <a class="inter-regular black-button${checkSign} id="toggle"></a>
         </nav>
       </header>
     `
@@ -49,3 +49,17 @@ class customFooter extends HTMLElement {
 
 customElements.define('custom-header', customHeader)
 customElements.define('custom-footer', customFooter)
+
+class customPlayer extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
+      <iframe src="https://www.youtube.com/embed/FgKE9U4Tyd8?autoplay=1"
+        frameborder="0"
+        allow="autoplay"
+        referrerpolicy="strict-origin-when-cross-origin">
+      </iframe>
+    `
+  }
+}
+
+customElements.define('main-player', customPlayer)

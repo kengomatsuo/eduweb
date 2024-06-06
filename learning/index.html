@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/styles/style.css">
   <script src="/scripts/customElements.js" defer></script>
   <script src="/scripts/authenticate.js" defer></script>
+  <script src="/scripts/player.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -20,6 +21,43 @@
 
 <body>
   <custom-header></custom-header>
+  <section class="shaded-vertical" id="learn-main">
+    <div class="spacer" id="hideonplay">
+      <h1 class="inter-bold shaded-text">Recommended from CS50</h1>
+      <div class="shaded-card" id="video-details">
+        <h2 class="inter-bold">Implementing the CS50 Duck with OpenAI's APIs</h2>
+        <div>
+          <a href="" class="inter-regular lecturer">Ronxin Liew</a>
+          <label for="separator">|</label>
+          <a href="" class="inter-regular lecturer">David J. Malan</a>
+        </div>
+        <a href="" class="inter-bold" id="university">Harvard University</a>
+        <div>
+          <h3 class="inter-bold">Learning Objectives:</h3>
+          <ul class="inter-regular">
+            <li>Understanding Rubber Duck Debugging</li>
+            <li>Implementing Virtual Assistants with OpenAI APIs</li>
+            <li>Utilizing System and User Prompts</li>
+            <li>Applying Retrieval-Augmented Generation (RAG)</li>
+            <li>Technical Setup and Deployment</li>
+          </ul>
+        </div>
+        <a class="inter-bold black-button-filled main-button" id="play-button">Start Learning</a>
+        <a href="" class="inter-bold black-button main-button">Download Materials</a>
+      </div>
+    </div>
+  </section>
+  <section class="shaded-vertical" id="learn-others">
+    <div class="spacer">
+      <h1 class="inter-bold">More from CS50</h1>
+      <span class="more-videos">
+        <iframe src="https://www.youtube.com/embed/-aqUek49iL8?si=c6D_Fn7f9S9sZoCr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/1RCMYG8RUSE?si=5Tbi_AOYWJUEvycC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/EKof-cJiTG8?si=fSWzv3N9EtAh1Ux4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </span>
+      <a href="" class="inter-bold black-button" id="see-more">See More</a>
+    </div>
+  </section>
   <custom-footer></custom-footer>
 </body>
 

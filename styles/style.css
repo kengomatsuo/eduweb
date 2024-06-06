@@ -25,12 +25,11 @@
     --second-title-size: 32px;
     --signup-text-size: 18px;
     --price-size: 22px;
-    --description-size: 14px;
+    --description-size: 16px;
     --generic-button-size: 24px;
     --features-percentage: 20%;
     --feature-title-visibility: none;
     --feature-flex-value: 1.3 1;
-    --card-padding: 16px 12px 32px 12px;
   }
 }
 
@@ -79,6 +78,10 @@ html {
 
 .shaded-vertical {
   box-shadow: 0 4px 4px 0 var(--shadow-color);
+}
+
+.shaded-box {
+  box-shadow: 3px 3px 8px 0 var(--shadow-color);
 }
 
 .shaded-card {
@@ -150,6 +153,7 @@ section {
 }
 
 h1 {
+  transition-duration: 0.3s;
   font-size: var(--title-size);
 }
 
@@ -247,9 +251,10 @@ footer * {
   margin-right: 16px;
 }
 
-#signup,
-#logout {
+#toggle {
   font-size: var(--signup-text-size);
+  cursor: pointer;
+  display: none;
 }
 
 .black-button {
@@ -547,7 +552,7 @@ footer * {
 }
 
 .question {
-  font-size: var(--second-title-size);
+  font-size: var(--navigation-size);
 }
 
 .answer {
@@ -585,12 +590,14 @@ footer * {
 }
 
 form label {
-  height: 8px;
+  height: 16px;
   display: block;
   font-size: 16px;
-  margin-bottom: 4px;
   padding-left: 8px;
   color: var(--warning-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 input {
@@ -630,7 +637,7 @@ input[type="submit"]:disabled {
 }
 
 #register-form span {
-  flex: 1 1;
+  flex: 1 1 45%;
 }
 
 #register-form div {
@@ -677,3 +684,194 @@ input[type="submit"]:disabled {
   backdrop-filter: blur(3px);
 }
 
+/* Testimony Page */
+
+#testimonies {
+  display: block;
+  position: relative;
+  background-image: url("/assets/img/testimony-main.jpg");
+  background-position: center;
+  background-size: cover;
+  padding: 72px;
+}
+
+#testimonies h1 {
+  position: relative;
+  text-align: center;
+  color: var(--back-color);
+}
+
+#testimonies::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  backdrop-filter: blur(5px);
+  background-color: var(--shadow-color);
+}
+
+#reviewsrow {
+  padding-bottom: 72px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: start;
+  justify-content: center;
+  gap: 20px;
+}
+
+.reviewscolumn {
+  flex: 1 1;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.review {
+  min-width: 400px;
+}
+
+.review-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.head div {
+  text-align: left;
+}
+
+.review h2 {
+  margin-bottom: 0;
+}
+
+.review a {
+  margin-top: 0;
+  color: var(--price-color);
+  font-size: var(--navigation-size);
+}
+
+.review img {
+  right: 0;
+  height: 100px;
+  border-radius: 8px;
+}
+
+.review p {
+  margin-right: 8px;
+}
+
+/* learn page */
+
+#learn-main {
+  padding: 72px;
+  position: relative;
+  background-image: url("/assets/img/learn-cs50-main.jpg");
+}
+
+main-player {
+  margin-top: 72px;
+  width: 100%;
+}
+
+#learn-main iframe {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  border-radius: 16px;
+}
+
+#learn-main::before {
+  background-color: var(--shadow-color);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  backdrop-filter: blur(5px);
+}
+
+#learn-main h1 {
+  position: relative;
+  color: var(--back-color);
+}
+
+#learn-main .shaded-card {
+  position: relative;
+  max-width: 600px;
+  margin-left: auto;
+}
+
+#video-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#video-details h2 {
+  margin: 4px 0;
+}
+
+.lecturer, #university {
+  font-size: var(--description-size);
+}
+
+#video-details h3 {
+  margin: 0;
+}
+
+#video-details ul {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  margin-left: 16px;
+}
+
+#video-details li {
+  margin: 8px 0;
+  font-size: var(--description-size);
+}
+
+#video-details .main-button {
+  font-size: var(--generic-button-size);
+  display: block;
+  text-align: center;
+  margin: 0;
+  cursor: pointer;
+}
+
+#learn-others {
+  min-height: 0;
+}
+
+#learn-others .spacer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+}
+
+#see-more {
+  flex-direction: 0 0;
+  font-size: var(--generic-button-size);
+  margin: 24px auto;
+}
+
+.more-videos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.more-videos iframe {
+  flex: 0 1 30%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+}

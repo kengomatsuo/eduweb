@@ -221,6 +221,6 @@ registerForm.addEventListener('submit', (e) => {
   if (checkAll()) {
     localStorage.setItem('auth', true)
     localStorage.setItem('name', firstName.value + ' ' + lastName.value)
-    location.href = '/index.html'
+    location.href = '../index.html'
   }
 })

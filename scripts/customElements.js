@@ -1,9 +1,7 @@
-console.log(window.location.pathname)
 let currentPath = window.location.pathname
 currentPath = currentPath.slice(0, currentPath.lastIndexOf('/'))
 currentPath = currentPath.slice(currentPath.lastIndexOf('/') + 1)
-console.log(currentPath);
-const checkHome = (currentPath === 'eduweb') ? 'id="current"' : 'href="../index.html"'
+const checkHome = (currentPath === 'eduweb' || currentPath === '') ? 'id="current"' : 'href="../index.html"'
 const checkSubs = (currentPath === 'subscription') ? 'id="current"' : (currentPath === 'eduweb') ? 'href="./subscription/index.html"' : 'href="../subscription/index.html"'
 const checkRevi = (currentPath === 'testimony') ? 'id="current"' : (currentPath === 'eduweb') ? 'href="./testimony/index.html"' : 'href="../testimony/index.html"'
 const checkLear = (currentPath === 'learning') ? 'id="current"' : (currentPath === 'eduweb') ? 'href="./learning/index.html"' : 'href="../learning/index.html"'
@@ -20,11 +18,32 @@ class customHeader extends HTMLElement {
           <a class="inter-regular navigation-button" ${checkRevi}>Reviews</a>
           <a class="inter-regular navigation-button" ${checkLear}>Learn</a>
           <h3 class="inter-regular" id="username"></h3>
-          <a class="inter-regular black-button${checkSign} id="toggle"></a>
-        </nav>
+          <a class="inter-regular hidden toggle black-button${checkSign} id="toggle-horizontal"></a>
+          <a id="burger-icon" onclick="toggleNav(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </a>
+          </nav>
+          <div class="shaded-box toggleNavOff" id="vertical-navigation">
+            <a class="inter-regular navigation-button-vertical" ${checkHome}>Home</a>
+            <a class="inter-regular navigation-button-vertical" ${checkSubs}>Products</a>
+            <a class="inter-regular navigation-button-vertical" ${checkRevi}>Reviews</a>
+            <a class="inter-regular navigation-button-vertical" ${checkLear}>Learn</a>
+            <h3 class="inter-regular" id="username"></h3>
+            <a class="inter-regular hidden toggle${checkSign} id="toggle-vertical"></a>
+          </div>
       </header>
     `
   }
+}
+
+function toggleNav(element) {
+  let navMenu = document.getElementById('vertical-navigation')
+  element.classList.toggle('change')
+  navMenu.classList.toggle('toggleNavOff')
+  navMenu.classList.toggle('toggleNav')
+  // navMenu.style.display = (navMenu.style.display == 'flex') ? 'none' : 'flex'
 }
 
 class customFooter extends HTMLElement {

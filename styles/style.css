@@ -1,39 +1,56 @@
 @media screen {
   :root {
-    --logo-size: 48px;
-    --logo-name-size: 30px;
-    --navigation-size: 22px;
-    --title-size: 48px;
-    --second-title-size: 32px;
-    --signup-text-size: 22px;
-    --price-size: 22px;
-    --description-size: 18px;
-    --generic-button-size: 28px;
-    --features-percentage: 20%;
     --feature-title-visibility: initial;
-    --feature-flex-value: 1.3 1;
-    --card-padding: 16px 24px 32px 24px;
+  }
+
+  #toggle-horizontal {
+    font-size: var(--signup-text-size);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+  }
+
+  #toggle-vertical, #burger-icon {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  :root {
+    --feature-title-visibility: none;
   }
 }
 
 @media screen and (max-width: 768px) {
-  :root {
-    --logo-size: 40px;
-    --logo-name-size: 30px;
-    --navigation-size: 18px;
-    --title-size: 40px;
-    --second-title-size: 32px;
-    --signup-text-size: 18px;
-    --price-size: 22px;
-    --description-size: 16px;
-    --generic-button-size: 24px;
-    --features-percentage: 20%;
-    --feature-title-visibility: none;
-    --feature-flex-value: 1.3 1;
+  #burger-icon {
+    display: inline-block;
+  }
+
+  #toggle-vertical {
+    display: flex;
+  }
+
+  .navigation-button, #toggle-horizontal {
+    display: none;
   }
 }
 
 :root {
+  --logo-size: calc(43px + 0.390625vw);
+  --logo-name-size: calc(25px + 0.390625vw);
+  --navigation-size: calc(17px + 0.390625vw);
+  --title-size: calc(43px + 0.390625vw);
+  --second-title-size: calc(28px + 0.390625vw);
+  --signup-text-size: calc(17px + 0.390625vw);
+  --price-size: calc(18px + 0.390625vw);
+  --description-size: calc(15px + 0.390625vw);
+  --generic-button-size: calc(22px + 0.390625vw);
+
+  --features-percentage: 20%;
+  --feature-flex-value: 1.3 1;
+  --card-padding: 16px 24px 32px 24px;
+
   --main-color: black;
   --back-color: white;
   --hyperlink-hover-color: rgba(0, 0, 0, 0.75);
@@ -46,6 +63,12 @@
 
 html {
   scroll-behavior: smooth;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 .lusitana-regular {
@@ -213,7 +236,7 @@ footer * {
   margin-right: 16px;
 }
 
-.navigation-button::after {
+.navigation-button::after, .navigation-button-vertical::after, #toggle-vertical:after {
   transition-duration: 0.3s;
   content: "";
   height: 3px;
@@ -225,7 +248,7 @@ footer * {
   pointer-events: none;
 }
 
-.navigation-button:hover::after {
+.navigation-button:hover::after, .navigation-button-vertical:hover::after, #toggle-vertical:hover::after {
   transition-duration: 0.3s;
   width: 110%;
   left: -5%;
@@ -251,10 +274,72 @@ footer * {
   margin-right: 16px;
 }
 
-#toggle {
-  font-size: var(--signup-text-size);
+#burger-icon {
   cursor: pointer;
-  display: none;
+}
+
+#burger-icon:hover div {
+  transition-duration: 0.3s;
+  box-shadow: 3px 3px 3px var(--shadow-color);
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: var(--main-color);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+#vertical-navigation {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  padding: 28px;
+  text-align: center;
+  justify-content: center;
+  gap: 20px;
+  top: 80px;
+  background-color: var(--back-color);
+  right: 0;
+  border-bottom-left-radius: 8px;
+  min-width: 128px;
+}
+
+#vertical-navigation * {
+  margin: auto;
+}
+
+.toggleNavOff {
+  transition-duration: 0.5s;
+  transform: translateY(-110%);
+  clip-path: inset(110% -10px 0 -10px);
+}
+
+.toggleNav {
+  transition-duration: 0.5s;
+  clip-path: inset(0px -10px -10px -10px);
+}
+
+#toggle-vertical {
+  position: relative;
+  margin: 0 auto;
+  font-size: var(--signup-text-size);
+}
+
+.navigation-button-vertical {
+  position: relative;
+  font-size: var(--navigation-size);
 }
 
 .black-button {
@@ -382,7 +467,7 @@ footer * {
   background-position: center;
   height: 100vh;
   box-sizing: border-box;
-  min-width: 210px;
+  min-width: 240px;
 }
 
 .feature:hover {
@@ -586,11 +671,11 @@ footer * {
 #register-form {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 8px;
 }
 
 form label {
-  height: 16px;
+  height: 22px;
   display: block;
   font-size: 16px;
   padding-left: 8px;
@@ -606,7 +691,7 @@ input {
   box-sizing: border-box;
   font-size: var(--generic-button-size);
   border: 0;
-  border-bottom: 3px solid var(--half-transparent-dark-color);
+  border-bottom: 2px solid var(--half-transparent-dark-color);
   padding: 3px 12px;
 }
 
@@ -818,7 +903,8 @@ main-player {
   margin: 4px 0;
 }
 
-.lecturer, #university {
+.lecturer,
+#university {
   font-size: var(--description-size);
 }
 

@@ -29,7 +29,6 @@ function checkAll() {
   if (phone.value.length) phoneValidation()
   if (password.value.length) passwordValidation()
   if (confPassword.value.length) confPasswordValidation()
-  console.log(checkFirstName, checkLastName, checkPhone, checkEmail, checkPassword, checkConfPassword)
   if (submitButton.disabled) {
     return false
   } else {

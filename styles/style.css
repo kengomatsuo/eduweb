@@ -5,7 +5,6 @@
 
   #toggle-horizontal {
     font-size: var(--signup-text-size);
-    display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

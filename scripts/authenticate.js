@@ -8,7 +8,11 @@ window.onload = () => {
     toggleButton.href = ''
     userName.innerHTML = localStorage.getItem('name')
 
-    toggleButton.addEventListener('click', () => {
+    toggleButton[0].addEventListener('click', () => {
+      localStorage.setItem('auth', false)
+      localStorage.removeItem('name')
+    })
+    toggleButton[1].addEventListener('click', () => {
       localStorage.setItem('auth', false)
       localStorage.removeItem('name')
     })

@@ -12,7 +12,7 @@
   }
 
   #toggle-vertical,
-  #burger-icon {
+  #burger-icon, #vertical-navigation {
     display: none;
   }
 }
@@ -28,7 +28,7 @@
     display: inline-block;
   }
 
-  #toggle-vertical {
+  #toggle-vertical, #vertical-navigation {
     display: flex;
   }
 
@@ -312,7 +312,6 @@ footer * {
 }
 
 #vertical-navigation {
-  display: flex;
   position: fixed;
   flex-direction: column;
   padding: 28px;
@@ -326,6 +325,10 @@ footer * {
   min-width: 128px;
   box-shadow: inset 0 2px 4px -2px var(--shadow-color),
     2px 4px 8px 0 var(--shadow-color);
+}
+
+#vertical-navigation:focus {
+  outline: none;
 }
 
 #vertical-navigation * {

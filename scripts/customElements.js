@@ -25,7 +25,7 @@ class customHeader extends HTMLElement {
             <div class="bar3"></div>
           </a>
           </nav>
-          <div class="shaded-box toggleNavOff" id="vertical-navigation">
+          <div class="shaded-box toggleNavOff" id="vertical-navigation" tabindex="-1" onblur="navBlur(this)">
             <a class="inter-regular navigation-button-vertical" ${checkHome}>Home</a>
             <a class="inter-regular navigation-button-vertical" ${checkSubs}>Products</a>
             <a class="inter-regular navigation-button-vertical" ${checkRevi}>Reviews</a>
@@ -38,11 +38,21 @@ class customHeader extends HTMLElement {
 }
 
 function toggleNav(element) {
-  let navMenu = document.getElementById('vertical-navigation')
+  const navMenu = document.getElementById('vertical-navigation')
   element.classList.toggle('change')
   navMenu.classList.toggle('toggleNavOff')
   navMenu.classList.toggle('toggleNav')
-  // navMenu.style.display = (navMenu.style.display == 'flex') ? 'none' : 'flex'
+  const burger = document.getElementsByClassName('toggleNav')
+  burger[0].focus()
+}
+
+function navBlur(element) {
+  if (element.matches(':hover')) {
+    return
+  }
+  document.getElementById('burger-icon').classList.toggle('change')
+  element.classList.remove('toggleNav')
+  element.classList.add('toggleNavOff')
 }
 
 class customFooter extends HTMLElement {

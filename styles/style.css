@@ -1,6 +1,7 @@
 @media screen {
   :root {
     --feature-title-visibility: initial;
+    --feature-flex-value: 1.3 1;
   }
 
   #toggle-horizontal {
@@ -12,7 +13,8 @@
   }
 
   #toggle-vertical,
-  #burger-icon, #vertical-navigation {
+  #burger-icon,
+  #vertical-navigation {
     display: none;
   }
 }
@@ -20,15 +22,21 @@
 @media screen and (max-width: 1200px) {
   :root {
     --feature-title-visibility: none;
+    --feature-flex-value: 1.7 1;
   }
 }
 
 @media screen and (max-width: 768px) {
+  :root {
+    --feature-flex-value: 2 1;
+  }
+
   #burger-icon {
     display: inline-block;
   }
 
-  #toggle-vertical, #vertical-navigation {
+  #toggle-vertical,
+  #vertical-navigation {
     display: flex;
   }
 
@@ -50,7 +58,6 @@
   --generic-button-size: calc(22px + 0.390625vw);
 
   --features-percentage: 20%;
-  --feature-flex-value: 1.3 1;
   --card-padding: 16px 24px 32px 24px;
 
   --main-color: black;
@@ -61,6 +68,7 @@
   --transparent-color: rgba(0, 0, 0, 0);
   --price-color: rgba(0, 0, 0, 0.6);
   --warning-color: rgb(200, 50, 50);
+  --glass-white: rgba(255, 255, 255, 0.75);
 }
 
 html {
@@ -217,7 +225,7 @@ footer * {
 
 .logo {
   transition-duration: 1s;
-  cursor: default;
+  cursor: pointer;
   font-size: var(--logo-size);
   margin-right: 16px;
 }
@@ -526,6 +534,7 @@ footer * {
 
 #subscriptions {
   justify-content: center;
+  position: relative;
   text-align: center;
   padding-bottom: 72px;
 }
@@ -563,9 +572,10 @@ footer * {
   flex-direction: column;
   justify-content: center;
   transition-duration: 0.3s;
+  min-width: 275px;
   z-index: 0;
   position: relative;
-  flex: 1 1;
+  flex: 1 0;
 }
 
 .plan:not(.suggested-card) {
@@ -579,8 +589,9 @@ footer * {
 
 .plans:hover .plan:not(:hover) {
   transition-duration: 0.3s;
-  opacity: 75%;
+  background-color: var(--glass-white);
   transform: scale(95%);
+  backdrop-filter: blur(20px);
 }
 
 .plan:hover {
@@ -783,7 +794,7 @@ input[type="submit"]:disabled {
   left: 0;
   top: 0;
   z-index: 0;
-  backdrop-filter: blur(3px);
+  /* backdrop-filter: blur(3px); */
 }
 
 /* Testimony Page */
@@ -871,9 +882,11 @@ input[type="submit"]:disabled {
 /* learn page */
 
 #learn-main {
-  padding: 72px;
-  position: relative;
+  padding: 72px 0;
   background-image: url("../assets/img/learn-cs50-main.jpg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
 }
 
 main-player {
@@ -883,7 +896,7 @@ main-player {
 
 #learn-main iframe {
   position: relative;
-  width: 100%;
+  width: 100svw;
   aspect-ratio: 16 / 7;
   border-radius: 16px;
 }
@@ -899,15 +912,23 @@ main-player {
   backdrop-filter: blur(5px);
 }
 
+#hideonplay {
+  display: flex;
+  flex-direction: column;
+}
+
 #learn-main h1 {
   position: relative;
   color: var(--back-color);
+  margin-left: 32px;
+  margin-right: 32px;
 }
 
 #learn-main .shaded-card {
   position: relative;
   max-width: 600px;
-  margin-left: auto;
+  align-self: flex-end;
+  margin: 0 32px;
 }
 
 #video-details {

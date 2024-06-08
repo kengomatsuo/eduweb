@@ -11,7 +11,7 @@ class customHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <header class="shaded-vertical">
-        <a class="lusitana-regular logo">JA</a>
+        <a class="lusitana-regular logo"${(currentPath === 'eduweb' || currentPath === '') ? '' : ' href="../index.html"'}">JA</a>
         <nav>
           <a class="inter-regular navigation-button" ${checkHome}>Home</a>
           <a class="inter-regular navigation-button" ${checkSubs}>Products</a>

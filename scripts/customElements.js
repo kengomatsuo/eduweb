@@ -84,7 +84,7 @@ customElements.define('custom-footer', customFooter)
 class customPlayer extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/wUQuxUjCH3s?si=gCCyaXBzZs3NQFV7"
+    <iframe src="https://www.youtube.com/embed/wUQuxUjCH3s?si=gCCyaXBzZs3NQFV7"
     title="YouTube video player" frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin"
